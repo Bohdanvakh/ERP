@@ -12,3 +12,13 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model Customer {
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(100)
+  fullName String @db.VarChar(250)
+  description String @db.VarChar(250)
+  address String @db.VarChar(250)
+  index String @db.VarChar(10)
+  registrationNumber String @db.VarChar(12)
+}
