@@ -17,4 +17,10 @@ export class CustomersService {
 
         return customer;
     }
+
+    async findAll(): Promise<Customer[]> {
+        return this.prisma.customer.findMany({
+            orderBy: { id: 'asc' },
+        });
+    }
 }
