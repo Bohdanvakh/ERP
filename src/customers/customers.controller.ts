@@ -9,4 +9,9 @@ export class CustomersController {
     findOne(@Param('id', ParseIntPipe) id: number) {
         return this.customersService.findOne(id);
     }
+
+    @Get()
+    findAll() {
+        return this.customersService.findAll();
+    }
 }
