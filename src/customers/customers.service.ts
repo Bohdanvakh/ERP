@@ -1,6 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { Customer } from '../generated/prisma/client';
+import { CreateCustomerDto } from './dto/create-customer.dto';
 
 @Injectable()
 export class CustomersService {
@@ -21,6 +22,12 @@ export class CustomersService {
     async findAll(): Promise<Customer[]> {
         return this.prisma.customer.findMany({
             orderBy: { id: 'asc' },
+        });
+    }
+
+    async create(dto: CreateCustomerDto): Promise<Customer> {
+        return this.prisma.customer.create({
+            data: dto,
         });
     }
 }
