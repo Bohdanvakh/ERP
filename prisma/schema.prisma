@@ -22,3 +22,11 @@ model Customer {
   index String @db.VarChar(10)
   registrationNumber String @db.VarChar(12)
 }
+
+model Items {
+  id Int @id @default(autoincrement())
+  name String @db.VarChar(100)
+  description String @db.VarChar(250)
+
+  @@index([name])
+}
