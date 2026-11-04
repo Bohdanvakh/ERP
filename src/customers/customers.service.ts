@@ -13,26 +13,24 @@ export class CustomersService {
             where: { id },
         });
 
-        if(!customer) {
-            throw new NotFoundException(`Customer with id ${id} not found`);
-        }
+        if(!customer) throw new NotFoundException(`Customer with id ${id} not found`);
 
         return customer;
     }
 
-    async findAll(): Promise<Customer[]> {
+    findAll(): Promise<Customer[]> {
         return this.prisma.customer.findMany({
             orderBy: { id: 'asc' },
         });
     }
 
-    async create(dto: CreateCustomerDto): Promise<Customer> {
+    create(dto: CreateCustomerDto): Promise<Customer> {
         return this.prisma.customer.create({
             data: dto,
         });
     }
 
-    async update(id: number, dto: UpdateCustomerDto): Promise<Customer> {
+    update(id: number, dto: UpdateCustomerDto): Promise<Customer> {
         return this.prisma.customer.update({
             where: { id },
             data: dto,
