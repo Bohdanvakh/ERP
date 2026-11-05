@@ -30,3 +30,14 @@ model Item {
 
   @@index([name])
 }
+
+model Warehouse {
+  id Int @id @default(autoincrement())
+  code String @db.VarChar(20)
+  name String @db.VarChar(100)
+  description String @db.VarChar(250)
+  address String
+  city String
+  phoneNumber String @db.VarChar(13)
+  email String
+}
