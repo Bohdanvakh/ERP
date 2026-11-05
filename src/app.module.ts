@@ -4,12 +4,14 @@ import { AppService } from './app.service';
 import { CustomersModule } from './customers/customers.module';
 import { ConfigModule } from '@nestjs/config';
 import { ItemsModule } from './items/items.module';
+import { WarehousesModule } from './warehouses/warehouses.module';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({isGlobal: true}),
     CustomersModule,
     ItemsModule,
-    ConfigModule.forRoot({isGlobal: true}),
+    WarehousesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
