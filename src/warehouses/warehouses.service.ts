@@ -15,4 +15,10 @@ export class WarehousesService {
 
         return wh;
     }
+
+    findAll(): Promise<Warehouse[]> {
+        return this.prisma.warehouse.findMany({
+            orderBy: { id: 'asc' },
+        });
+    }
 }
